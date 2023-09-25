@@ -26,7 +26,7 @@ bool canMove (int destY, int destX) {
 int main()
 {
 	int exit = 0;
-	char userChar = 'A';
+	unsigned int userChar = 0;
 	int playerX = 0;
 	int playerY = 0;
 
@@ -47,13 +47,13 @@ int main()
 		mvprintw (1, 0, "Player Y: %d", playerY);
 		mvprintw (2, 0, "Player X: %d", playerX);
 		mvprintw (3, 0, "Turns passed: %f", turns);
+		mvprintw (4, 0, "Last Key Pressed: %d", userChar);
 		attron(COLOR_PAIR(OCEAN_PAIR));
 		mvaddch (playerY, playerX, PLAYER_CHAR);
 		attroff(COLOR_PAIR(OCEAN_PAIR));
 		refresh();
 		//FIXME
-		turns++;
-		GETCHAR: userChar = getch();
+		userChar = getch(); 
 		switch (userChar) {
 			case 'Q':
 				exit = 1;
@@ -64,6 +64,7 @@ int main()
 					playerX--;
 				}
 				break;
+			case KEY_DOWN:
 			case '2':
 				if (canMove (playerY + 1, playerX)) {
 					playerY++;
@@ -75,6 +76,7 @@ int main()
 					playerX++;
 				}
 				break;
+			case KEY_LEFT:
 			case '4':
 				if (canMove (playerY, playerX - 1)) {
 					playerX--;
@@ -82,6 +84,7 @@ int main()
 				break;
 			case '5':
 				break;
+			case KEY_RIGHT:
 			case '6':
 				if (canMove (playerY, playerX + 1)) {
 					playerX++;
@@ -93,6 +96,7 @@ int main()
 					playerX--;
 				}
 				break;
+			case KEY_UP:
 			case '8':
 				if (canMove (playerY - 1, playerX)) {
 					playerY--;
@@ -104,8 +108,6 @@ int main()
 					playerX++;
 				}
 				break;
-			default:
-				goto GETCHAR;
 		}
 	}
 	//End the program
