@@ -52,7 +52,6 @@ int main()
 		mvaddch (playerY, playerX, PLAYER_CHAR);
 		attroff(COLOR_PAIR(OCEAN_PAIR));
 		refresh();
-		//FIXME
 		userChar = getch(); 
 		switch (userChar) {
 			case 'Q':
