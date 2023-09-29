@@ -1,6 +1,7 @@
 {
     "C_Cpp.errorSquiggles": "enabledIfIncludesResolve",
     "files.associations": {
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "actor.h": "c"
     }
 }

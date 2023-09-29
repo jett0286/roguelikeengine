@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <curses.h>
+#include "../include/actor.h"
 
 //colors
 #define OCEAN_PAIR 1
