@@ -24,18 +24,24 @@ bool canMove (int destY, int destX) {
 	return returnVal;
 }
 
+void playerPassTurns (double numTurns) {
+	turns += numTurns;
+}
+
 int main()
 {
 	int exit = 0;
 	unsigned int userChar = 0;
 	int playerX = 0;
 	int playerY = 0;
+	Actor Johnny;
 
 	//Initialize the screen
 	initscr();
 	start_color ();
 	noecho();
 	cbreak();
+	keypad (stdscr, true);
 	curs_set (HIDE_CURSOR);
 	init_pair (OCEAN_PAIR, COLOR_BLUE, COLOR_BLACK);
 	if (has_colors () == false) {
@@ -43,6 +49,9 @@ int main()
 		endwin();
 		return EXIT_FAILURE;
 	}
+	
+	actorInit (&Johnny, 10, 10, 10, 1.0, 1.0);
+
 	while (!exit) {
 		clear();
 		mvprintw (1, 0, "Player Y: %d", playerY);
@@ -54,10 +63,12 @@ int main()
 		attroff(COLOR_PAIR(OCEAN_PAIR));
 		refresh();
 		userChar = getch(); 
+		turns++;
 		switch (userChar) {
 			case 'Q':
 				exit = 1;
 				break;
+			case KEY_END:
 			case '1':
 				if (canMove (playerY + 1, playerX - 1)) {
 					playerY++;
@@ -70,6 +81,7 @@ int main()
 					playerY++;
 				}
 				break;
+			case KEY_NPAGE:
 			case '3':
 				if (canMove (playerY + 1, playerX + 1)) {
 					playerY++;
@@ -90,6 +102,7 @@ int main()
 					playerX++;
 				}
 				break;
+			case KEY_HOME:
 			case '7':
 				if (canMove (playerY - 1, playerX - 1)) {
 					playerY--;
@@ -102,6 +115,7 @@ int main()
 					playerY--;
 				}
 				break;
+			case KEY_PPAGE:
 			case '9':
 				if (canMove (playerY - 1, playerX + 1)) {
 					playerY--;
