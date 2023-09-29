@@ -34,7 +34,6 @@ int main()
 	unsigned int userChar = 0;
 	int playerX = 0;
 	int playerY = 0;
-	Actor Johnny;
 
 	//Initialize the screen
 	initscr();
@@ -49,8 +48,6 @@ int main()
 		endwin();
 		return EXIT_FAILURE;
 	}
-	
-	actorInit (&Johnny, 10, 10, 10, 1.0, 1.0);
 
 	while (!exit) {
 		clear();
@@ -63,7 +60,6 @@ int main()
 		attroff(COLOR_PAIR(OCEAN_PAIR));
 		refresh();
 		userChar = getch(); 
-		turns++;
 		switch (userChar) {
 			case 'Q':
 				exit = 1;
@@ -74,12 +70,14 @@ int main()
 					playerY++;
 					playerX--;
 				}
+				playerPassTurns (1.0);
 				break;
 			case KEY_DOWN:
 			case '2':
 				if (canMove (playerY + 1, playerX)) {
 					playerY++;
 				}
+				playerPassTurns (1.0);
 				break;
 			case KEY_NPAGE:
 			case '3':
@@ -87,20 +85,25 @@ int main()
 					playerY++;
 					playerX++;
 				}
+				playerPassTurns (1.0);
 				break;
 			case KEY_LEFT:
 			case '4':
 				if (canMove (playerY, playerX - 1)) {
 					playerX--;
 				}
+				playerPassTurns (1.0);
 				break;
+			case '.':
 			case '5':
+				playerPassTurns (1.0);
 				break;
 			case KEY_RIGHT:
 			case '6':
 				if (canMove (playerY, playerX + 1)) {
 					playerX++;
 				}
+				playerPassTurns (1.0);
 				break;
 			case KEY_HOME:
 			case '7':
@@ -108,12 +111,14 @@ int main()
 					playerY--;
 					playerX--;
 				}
+				playerPassTurns (1.0);
 				break;
 			case KEY_UP:
 			case '8':
 				if (canMove (playerY - 1, playerX)) {
 					playerY--;
 				}
+				playerPassTurns (1.0);
 				break;
 			case KEY_PPAGE:
 			case '9':
@@ -121,6 +126,7 @@ int main()
 					playerY--;
 					playerX++;
 				}
+				playerPassTurns (1.0);
 				break;
 		}
 	}
