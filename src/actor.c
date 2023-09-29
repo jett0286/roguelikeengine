@@ -10,9 +10,8 @@
 #include <stdlib.h>
 #include "../include/actor.h"
 
-void actorInit (ActorPtr pActor, int maxHP, int maxMP, int atkDmg, double atkSpd, double movSpd) {
-    pActor->maxHP = maxHP;
-    pActor->HP = maxHP;
+void actorInit (ActorPtr pActor, int xCoord, int yCoord, int maxHP, int maxMP, int atkDmg, double atkSpd, double movSpd) {
+    thingInit (pActor->pThing, xCoord, yCoord, maxHP);
 
     pActor->maxMP = maxMP;
     pActor->MP = maxMP;
@@ -24,7 +23,7 @@ void actorInit (ActorPtr pActor, int maxHP, int maxMP, int atkDmg, double atkSpd
 }
 
 void actorChangeHP (ActorPtr pActor, int hpDiff) {
-    pActor->HP += hpDiff;
+    thingChangeHP (pActor->pThing, hpDiff);
 }
 
 void actorChangeMP (ActorPtr pActor, int mpDiff) {

@@ -32,8 +32,8 @@ int main()
 {
 	int exit = 0;
 	unsigned int userChar = 0;
-	int playerX = 0;
 	int playerY = 0;
+	int playerX = 0;
 
 	//Initialize the screen
 	initscr();

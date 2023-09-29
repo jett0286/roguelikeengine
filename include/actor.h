@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////
 //
-//  Actor.c
+//  Actor.h
 //      Structs & prototypes for the actor class 
 //      (abstract class for stuff that fights)
 //
@@ -11,11 +11,11 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include "./thing.h"
 
 typedef struct Actor {
-    int maxHP;
-    int HP;
-    
+    ThingPtr pThing;
+
     int maxMP;
     int MP;
 
@@ -27,7 +27,7 @@ typedef struct Actor {
 
 typedef Actor *ActorPtr;
 
-void actorInit (ActorPtr, int, int, int, double, double);
+void actorInit (ActorPtr, int, int, int, int, int, double, double);
 
 void actorChangeHP (ActorPtr, int);
 
