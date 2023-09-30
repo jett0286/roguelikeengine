@@ -4,7 +4,7 @@
 
 all: bin/main
 
-objects = bin/main.o bin/actor.o bin/thing.o
+objects = bin/main.o bin/actor.o bin/thing.o bin/screen.o
 
 bin/main: $(objects)
 	gcc -o bin/main -g -Wall $(objects) -lncurses
@@ -17,6 +17,9 @@ bin/actor.o: src/actor.c include/actor.h include/thing.h
 
 bin/thing.o: src/thing.c include/thing.h
 	gcc -c -o bin/thing.o -g -Wall src/thing.c
+
+bin/screen.o: src/screen.c include/screen.h
+	gcc -c -o bin/screen.o -g -Wall src/screen.c
 
 clean: 
 	rm -rf bin/*
