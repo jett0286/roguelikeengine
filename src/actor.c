@@ -10,6 +10,8 @@
 #include <stdlib.h>
 #include "../include/actor.h"
 
+// ACTOR FUNCTIONS
+// SETUP
 void actorInit (ActorPtr pActor) {
     pActor->pThing = malloc (sizeof (Thing));
 }
@@ -19,71 +21,113 @@ void actorDelete (ActorPtr pActor) {
 }
 
 // CHANGERS
+//Changers (add value of int)
+void actorChangeMaxMP (ActorPtr pActor, int diffMaxMP) {
+    pActor->maxMP += diffMaxMP;
+}
+void actorChangeMP (ActorPtr pActor, int diffMP) {
+    pActor->MP += diffMP;
+}
+
+//Setters (set value of int/char)
+void actorSetMaxMP (ActorPtr pActor, int newMaxMP) {
+    pActor->maxMP = newMaxMP;
+}
+void actorSetMP (ActorPtr pActor, int newMP) {
+    pActor->MP = newMP;
+}
+void actorSetAtkDmg (ActorPtr pActor, int newAtkDmg) {
+    pActor->atkDmg = newAtkDmg;
+}
+void actorSetAtkSpd (ActorPtr pActor, double newAtkSpd) {
+    pActor->atkSpd = newAtkSpd;
+}
+void actorSetMovSpd (ActorPtr pActor, double newMovSpd) {
+    pActor->movSpd = newMovSpd;
+}
+
+//Getters
+int actorGetMaxMP (ActorPtr pActor) {
+    return pActor->maxMP;
+}
+int actorGetMP (ActorPtr pActor) {
+    return pActor->MP;
+}
+int actorGetAtkDmg (ActorPtr pActor) {
+    return pActor->atkDmg;
+}
+double actorGetAtkSpd (ActorPtr pActor) {
+    return pActor->atkSpd;
+}
+double actorGetMovSpd (ActorPtr pActor) {
+    return pActor->movSpd;
+}
+
+// THING FUNCTIONS
+// CHANGERS
 void actorChangeCoords (ActorPtr pActor, int yMov, int xMov) {
-    pActor->pThing->yCoord += yMov;
-    pActor->pThing->xCoord += xMov;
+    thingChangeCoords (pActor->pThing, yMov, xMov);
 }
 
 void actorChangeMaxHP (ActorPtr pActor, int maxHPDiff) {
-    pActor->pThing->maxHP += maxHPDiff;
+    thingChangeMaxHP (pActor->pThing, maxHPDiff);
 }
 
 void actorChangeHP (ActorPtr pActor, int HPDiff) {
-    pActor->pThing->HP += HPDiff;
+    thingChangeHP (pActor->pThing, HPDiff);
 }
 
 // SETTERS
 void actorSetCoords (ActorPtr pActor, int newYCoord, int newXCoord) {
-    pActor->pThing->yCoord = newYCoord;
-    pActor->pThing->xCoord = newXCoord;
+    thingSetCoords (pActor->pThing, newYCoord, newXCoord);
 }
 
 void actorSetMaxHP (ActorPtr pActor, int newMaxHP) {
-    pActor->pThing->maxHP = newMaxHP;
+    thingSetMaxHP (pActor->pThing, newMaxHP);
 }
 
 void actorSetHP (ActorPtr pActor, int newHP) {
-    pActor->pThing->HP = newHP;
+    thingSetHP (pActor->pThing, newHP);
 }
 
 void actorSetSpriteChar (ActorPtr pActor, char newSpriteChar) {
-    pActor->pThing->spriteChar = newSpriteChar;
+    thingSetSpriteChar (pActor->pThing, newSpriteChar);
 }
 
 void actorSetPriority (ActorPtr pActor, int newPriority) {
-    pActor->pThing->priority = newPriority;
+    thingSetPriority (pActor->pThing, newPriority);
 }
 
 void actorSetFlags (ActorPtr pActor, char newFlags) {
-    pActor->pThing->flags = newFlags;
+    thingSetFlags (pActor->pThing, newFlags);
 }
 
 // GETTERS
 
 int actorGetY (ActorPtr pActor) {
-    return pActor->pThing->yCoord;
+    return thingGetY (pActor->pThing);
 }
 
 int actorGetX (ActorPtr pActor) {
-    return pActor->pThing->xCoord;
+    return thingGetX (pActor->pThing);
 }
 
 int actorGetMaxHP (ActorPtr pActor) {
-    return pActor->pThing->maxHP;
+    return thingGetMaxHP (pActor->pThing);
 }
 
 int actorGetHP (ActorPtr pActor) {
-    return pActor->pThing->HP;
+    return thingGetHP (pActor->pThing);
 }
 
 char actorGetSpriteChar (ActorPtr pActor) {
-    return pActor->pThing->spriteChar;    
+    return thingGetSpriteChar (pActor->pThing);    
 }
 
 int actorGetPriority (ActorPtr pActor) {
-    return pActor->pThing->priority;
+    return thingGetPriority (pActor->pThing);
 }
 
 char actorGetFlags (ActorPtr pActor) {
-    return pActor->pThing->flags;
+    return thingGetFlags (pActor->pThing);
 }

@@ -37,7 +37,7 @@ int main()
 	unsigned int userChar = 0;
 	int playerY = 0;
 	int playerX = 0;
-	
+
 	//Initialize the screen
 	initscr();
 	start_color ();

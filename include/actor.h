@@ -26,10 +26,28 @@ typedef struct Actor {
 } Actor;
 
 typedef Actor *ActorPtr;
-
+// FROM ACTOR
 //Setup
 void actorInit (ActorPtr);
 void actorDelete (ActorPtr);
+
+//Changers (add value of int)
+void actorChangeMaxMP (ActorPtr, int);
+void actorChangeMP (ActorPtr, int);
+
+//Setters (set value of int/char)
+void actorSetMaxMP (ActorPtr, int);
+void actorSetMP (ActorPtr, int);
+void actorSetAtkDmg (ActorPtr, int);
+void actorSetAtkSpd (ActorPtr, double);
+void actorSetMovSpd (ActorPtr, double);
+
+//Getters
+int actorGetMaxMP (ActorPtr);
+int actorGetMP (ActorPtr);
+int actorGetAtkDmg (ActorPtr);
+double actorGetAtkSpd (ActorPtr);
+double actorGetMovSpd (ActorPtr);
 
 // FROM THING
 //Changers (add value of int)
