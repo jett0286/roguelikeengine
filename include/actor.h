@@ -27,7 +27,8 @@ typedef struct Actor {
 
 typedef Actor *ActorPtr;
 
-void actorInit (ActorPtr, int, int, int, int, int, double, double);
+// void actorInit (ActorPtr, int, int, int, char, int, int, double, double);
+void actorInit (ActorPtr);
 
 void actorChangeHP (ActorPtr, int);
 

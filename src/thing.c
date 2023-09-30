@@ -11,12 +11,27 @@
 #include <stdlib.h>
 #include "../include/thing.h"
 
-void thingInit (ThingPtr pThing, int yCoord, int xCoord, int maxHP) {
-    pThing->yCoord = yCoord;
-    pThing->xCoord = xCoord;
+// void thingInit (ThingPtr pThing, int yCoord, int xCoord, int maxHP, char spriteChar, int priority, char) {
+//     pThing->yCoord = yCoord;
+//     pThing->xCoord = xCoord;
 
-    pThing->maxHP = maxHP;
-    pThing->HP = maxHP;
+//     pThing->maxHP = maxHP;
+//     pThing->HP = maxHP;
+
+//     pThing->flags = flags;
+// }
+
+void thingInit (ThingPtr pThing) {
+    pThing->yCoord = 0;
+    pThing->xCoord = 0;
+    
+    pThing->maxHP = 0;
+    pThing->HP = 0;
+
+    pThing->spriteChar = '?';
+    pThing->priority = 0;
+    
+    pThing->flags = 0;
 }
 
 void thingChangeHP (ThingPtr pThing, int hpDiff) {

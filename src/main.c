@@ -14,6 +14,7 @@
 
 double turns = 0.0;
 
+// FLAGGED FOR REMOVAL
 bool canMove (int destY, int destX) {
 	char returnVal = TRUE;
 
@@ -24,6 +25,7 @@ bool canMove (int destY, int destX) {
 	return returnVal;
 }
 
+// FLAGGED FOR REMOVAL
 void playerPassTurns (double numTurns) {
 	turns += numTurns;
 }
@@ -42,7 +44,7 @@ int main()
 	cbreak();
 	keypad (stdscr, true);
 	curs_set (HIDE_CURSOR);
-	init_pair (OCEAN_PAIR, COLOR_BLUE, COLOR_BLACK);
+	init_pair (OCEAN_PAIR, COLOR_BLUE, COLOR_BLACK); // FLAGGED FOR EDIT
 	if (has_colors () == false) {
 		printf ("Your terminal does not support color\n");
 		endwin();
@@ -51,13 +53,13 @@ int main()
 
 	while (!exit) {
 		clear();
-		mvprintw (1, 0, "Player Y: %d", playerY);
-		mvprintw (2, 0, "Player X: %d", playerX);
-		mvprintw (3, 0, "Turns passed: %f", turns);
-		mvprintw (4, 0, "Last Key Pressed: %d", userChar);
-		attron(COLOR_PAIR(OCEAN_PAIR));
-		mvaddch (playerY, playerX, PLAYER_CHAR);
-		attroff(COLOR_PAIR(OCEAN_PAIR));
+		mvprintw (1, 0, "Player Y: %d", playerY); // FLAGGED FOR REMOVAL
+		mvprintw (2, 0, "Player X: %d", playerX); // FLAGGED FOR REMOVAL
+		mvprintw (3, 0, "Turns passed: %f", turns); // FLAGGED FOR REMOVAL
+		mvprintw (4, 0, "Last Key Pressed: %d", userChar); // FLAGGED FOR REMOVAL
+		attron(COLOR_PAIR(OCEAN_PAIR)); // FLAGGED FOR EDIT
+		mvaddch (playerY, playerX, PLAYER_CHAR); // FLAGGED FOR EDIT
+		attroff(COLOR_PAIR(OCEAN_PAIR)); // FLAGGED FOR EDIT
 		refresh();
 		userChar = getch(); 
 		switch (userChar) {
