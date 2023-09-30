@@ -36,6 +36,15 @@ int main()
 	unsigned int userChar = 0;
 	int playerY = 0;
 	int playerX = 0;
+	
+	
+	Actor Johnny;
+	actorInit (&Johnny);
+	actorSetMaxHP (&Johnny, 20);
+	actorSetHP (&Johnny, 20);
+	actorChangeHP (&Johnny, -5);
+	printw ("Johnny: %d/%d", actorGetHP (&Johnny), actorGetMaxHP (&Johnny));
+
 
 	//Initialize the screen
 	initscr();

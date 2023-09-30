@@ -31,7 +31,6 @@ typedef Actor *ActorPtr;
 void actorInit (ActorPtr);
 
 // FROM THING
-
 //Changers (add value of int)
 void actorChangeCoords (ActorPtr, int, int);
 void actorChangeMaxHP (ActorPtr, int);
