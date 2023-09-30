@@ -41,12 +41,29 @@ typedef Thing *ThingPtr;
 
 //void thingInit (ThingPtr, int, int, int, char, int, char);
 
+//Setup
 void thingInit (ThingPtr);
 
+//Changers (add value of int)
+void thingChangeCoords (ThingPtr, int, int);
+void thingChangeMaxHP (ThingPtr, int);
 void thingChangeHP (ThingPtr, int);
 
-void thingMove (ThingPtr, int, int);
-
+//Setters (set value of int/char)
 void thingSetCoords (ThingPtr, int, int);
+void thingSetMaxHP (ThingPtr, int);
+void thingSetHP (ThingPtr, int);
+void thingSetSpriteChar (ThingPtr, char);
+void thingSetPriority (ThingPtr, int);
+void thingSetFlags (ThingPtr, char);
+
+//Getters
+int thingGetY (ThingPtr);
+int thingGetX (ThingPtr);
+int thingGetMaxHP (ThingPtr);
+int thingGetHP (ThingPtr);
+char thingGetSpriteChar (ThingPtr);
+int thingGetPriority (ThingPtr);
+char thingGetFlags (ThingPtr);
 
 #endif
