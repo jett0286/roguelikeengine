@@ -29,6 +29,7 @@ typedef Actor *ActorPtr;
 
 //Setup
 void actorInit (ActorPtr);
+void actorDelete (ActorPtr);
 
 // FROM THING
 //Changers (add value of int)

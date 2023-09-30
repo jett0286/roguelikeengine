@@ -10,6 +10,14 @@
 #include <stdlib.h>
 #include "../include/actor.h"
 
+void actorInit (ActorPtr pActor) {
+    pActor->pThing = malloc (sizeof (Thing));
+}
+
+void actorDelete (ActorPtr pActor) {
+    free (pActor->pThing);
+}
+
 // CHANGERS
 void actorChangeCoords (ActorPtr pActor, int yMov, int xMov) {
     pActor->pThing->yCoord += yMov;

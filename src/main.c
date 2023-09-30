@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <curses.h>
 #include "../include/actor.h"
+#include "../include/thing.h"
 
 //colors
 #define OCEAN_PAIR 1
@@ -37,15 +38,6 @@ int main()
 	int playerY = 0;
 	int playerX = 0;
 	
-	
-	Actor Johnny;
-	actorInit (&Johnny);
-	actorSetMaxHP (&Johnny, 20);
-	actorSetHP (&Johnny, 20);
-	actorChangeHP (&Johnny, -5);
-	printw ("Johnny: %d/%d", actorGetHP (&Johnny), actorGetMaxHP (&Johnny));
-
-
 	//Initialize the screen
 	initscr();
 	start_color ();
@@ -54,6 +46,7 @@ int main()
 	keypad (stdscr, true);
 	curs_set (HIDE_CURSOR);
 	init_pair (OCEAN_PAIR, COLOR_BLUE, COLOR_BLACK); // FLAGGED FOR EDIT
+
 	if (has_colors () == false) {
 		printf ("Your terminal does not support color\n");
 		endwin();
