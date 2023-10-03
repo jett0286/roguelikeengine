@@ -2,7 +2,7 @@
 //
 //  Screen.h
 //      Structs and prototypes for the screen class,
-//      which stores actors in a user-defined grid
+//      which displays actors in a user-defined grid
 //
 /////////////////////////////////////////////////////////
 
